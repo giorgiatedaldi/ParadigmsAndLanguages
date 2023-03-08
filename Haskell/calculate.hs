@@ -1,4 +1,4 @@
--- Write a Haskell calculate function
+-- Write a Haskell calculate function 
 -- Params: a string and two numbers
     -- The string param represents the operation to perform on the two numbers
     -- Any of +, -, *, /
