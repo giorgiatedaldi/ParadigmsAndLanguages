@@ -1,8 +1,7 @@
 from functools import partial
 from itertools import count, takewhile, repeat
+from math import pow
 
 pow2 = partial(pow, exp=2)
 
-#print(sum(list(takewhile(lambda i: i < 10000, (filter(lambda num: num%2!=0,(map(pow2, count()))))))))
-
-print(sum(list(x*x for x in count() if x*x % 2 != 0 and x*x < 1000)))
+print(sum(takewhile(lambda x: x < 10000, (pow(x,2) for x in count() if pow(x,2) % 2 != 0))))
