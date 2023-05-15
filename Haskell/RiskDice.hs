@@ -18,12 +18,12 @@ import Data.List
 sortDescending :: [Int] -> [Int]
 sortDescending = reverse . sort
 
-rollThreeDice :: StdGen -> [Int]
-rollThreeDice gen = 
-    let (first, newGen) = randomR (1,6) gen
-        (second, newGen') = randomR (1,6) newGen
-        (third, newGen'') = randomR (1, 6) newGen'
-    in  sortDescending [first, second, third]
+-- rollThreeDice :: StdGen -> [Int]
+-- rollThreeDice gen = 
+--     let (first, newGen) = randomR (1,6) gen
+--         (second, newGen') = randomR (1,6) newGen
+--         (third, newGen'') = randomR (1, 6) newGen'
+--     in  sortDescending [first, second, third]
 
 rollNDice ::StdGen -> [Int]
 rollNDice gen = 
