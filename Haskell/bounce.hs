@@ -44,7 +44,6 @@ instance Eq BasicActor where
     (Turtle x1 y1 _) == (Turtle x2 y2 _) = x1 == x2 && y1 == y2
     _ == _ = False
 
---prendo testa della lista, controllo se checkcollision è true (con tutti gli el della lista) se è true applico collide al primo elemento
 checkForCollisions :: (Actor a) => [a] -> [a] -> [a]
 checkForCollisions [] _ = []
 checkForCollisions [a] acc = a:acc
@@ -63,7 +62,6 @@ updateList oldActor newActor actors = map update actors
           | actor == oldActor = newActor
           | otherwise = actor
 
---fixare pallina che non cambia direzione (una delle due si però poi applico la funzione al contrario dove ho giaà applicato gli effetti)
 instance Actor BasicActor where
     collide (Ball x y dx dy) (Ball x2 y2 _ _) = Ball x y (-dx) (-dy)
     collide (Ball x y dx dy) (Turtle x2 y2 _) = Ball x y (-dx) (-dy)
@@ -83,7 +81,6 @@ instance Actor BasicActor where
             x' = (x + dx) `mod` maxX
             y' = (y + dy) `mod` maxY
         in updateList (Ghost x y rnd) (Ghost x' y' newRnd') actors
-    --aggiungere controllo dead = false/true
     move keys actors (Turtle x y False) =
         let actor = (Turtle x y False)
         in case keys of
